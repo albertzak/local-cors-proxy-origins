@@ -1,4 +1,4 @@
-# Local CORS Proxy
+# Local CORS Proxy (+ custom origins header support)
 
 Simple proxy to bypass CORS issues. This was built as a local dev only solution to enable prototyping against existing APIs without having to worry about CORS.
 
@@ -11,7 +11,7 @@ No 'Access-Control-Allow-Origin' header is present on the requested resource. Or
 ## Getting Started
 
 ```
-npm install -g local-cors-proxy
+npm install -g local-cors-proxy-origins
 ```
 
 **Simple Example**
@@ -31,7 +31,7 @@ lcp --proxyUrl https://www.yourdomain.ie
 Then in your client code, new API endpoint:
 
 ```
-http://localhost:8010/proxy/movies/list
+http://localhost:8010/movies/list
 ```
 
 End result will be a request to `https://www.yourdomain.ie/movies/list` without the CORS issues!
@@ -49,7 +49,7 @@ Alternatively you can install the package locally and add a script to your proje
 | Option         | Example               | Default |
 | -------------- | --------------------- | ------: |
 | --proxyUrl     | https://www.google.ie |         |
-| --proxyPartial | foo                   |   proxy |
 | --port         | 8010                  |    8010 |
 | --credentials  | (no value needed)     |   false |
-| --origin       | http://localhost:4200 |       * |
+| --remoteOrigin | https://example.com   |         |
+| --localOrigin  | http://localhost:4200 |         |
